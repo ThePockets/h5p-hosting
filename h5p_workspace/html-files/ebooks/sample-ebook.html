@@ -1,22 +1,23 @@
-<html>
+<html lang="en">
 <head>
-  <link type="text/css" rel="stylesheet" media="all" href="../../dist/styles/h5p.css" />
   <meta charset="utf-8" />
+  <title>Sample eBook</title>
   <script type="text/javascript" src="../../dist/main.bundle.js"></script>
+</head>
+
+<body>
+  <div id="h5p-container"></div>
 
   <script type="text/javascript">
-    (function($) {
-      $(function() {
-        $('.h5p-container').h5p({
-          frameJs: '../../dist/js/h5p-standalone-frame.min.js',
-          frameCss: '../../dist/styles/h5p.css',
-          h5pContent: '../../h5p-files/ebooks/sample-ebook' <!-- Name of specific H5P content folder goes here -->
-        });
-      });
-    })(H5P.jQuery);
+    const {
+      H5P
+    } = H5PStandalone;
+    new H5P(document.getElementById('h5p-container'),  {
+      h5pJsonPath: '../../h5p-files/ebooks/sample-ebook',
+      frameJs: '../../dist/frame.bundle.js',
+      frameCss: '../../dist/styles/h5p.css'
+    });
   </script>
-</head>
-  <body>
-    <div class="h5p-container"></div>
-  </body>
+</body>
+
 </html>
