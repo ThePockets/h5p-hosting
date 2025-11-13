@@ -25,6 +25,7 @@ interface Options {
     contentUserData?: H5PContent['contentUserData'];
     saveFreq?: number | false;
     postUserStatistics?: boolean;
+    reportingIsEnabled?: boolean;
     ajax?: {
         setFinishedUrl?: string;
         contentUserDataUrl?: string;
@@ -59,10 +60,10 @@ export declare class H5PStandalone {
     getH5PPaths(options: Options): H5PKeyPaths;
     libraryFolderNameIncludesVersion(librariesPath: string, dependency: LibraryDependency, assetsRequestFetchOptions?: RequestInit): Promise<boolean>;
     libraryToFolderName(library: LibraryDependency): string;
-    findMainLibrary(h5pJsonContent: H5PPackageDefinition, librariesPath: string): Promise<H5PLibraryDefinition>;
-    findAllDependencies(h5pJsonContent: H5PPackageDefinition, librariesPath: any): Promise<LocalLibraryDependency[]>;
-    loadDependencies(toFind: string[], alreadyFound: LocalLibraryDependency[], librariesPath: string): Promise<LocalLibraryDependency[]>;
-    findLibraryDependencies(libraryFolderName: string, librariesPath: string): Promise<LocalLibraryDependency>;
+    findMainLibrary(h5pJsonContent: H5PPackageDefinition, librariesPath: string, assetsRequestFetchOptions?: RequestInit): Promise<H5PLibraryDefinition>;
+    findAllDependencies(h5pJsonContent: H5PPackageDefinition, librariesPath: any, assetsRequestFetchOptions?: RequestInit): Promise<LocalLibraryDependency[]>;
+    loadDependencies(toFind: string[], alreadyFound: LocalLibraryDependency[], librariesPath: string, assetsRequestFetchOptions?: RequestInit): Promise<LocalLibraryDependency[]>;
+    findLibraryDependencies(libraryFolderName: string, librariesPath: string, assetsRequestFetchOptions?: RequestInit): Promise<LocalLibraryDependency>;
     sortDependencies(dependencies: LocalLibraryDependency[], librariesPath: string): {
         styles: string[];
         scripts: string[];
